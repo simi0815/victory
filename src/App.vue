@@ -6,16 +6,18 @@
 
 
         <!--设置banner点击区域，masking是导航栏面板的响应区域-->
-        <div class="masking" @mouseenter="isShow=true">
+        <!--PC端导航栏，代码太差，需要重写-->
+        <div class="masking" @mouseenter="isShow=true" v-if="!isMob">
             <!--logo标志-->
             <div class="logo">
                 <img src="./assets/images/banner/logo.png" alt="">
             </div>
-
+            <!--右侧功能区-->
             <div class="funcArea">
                 <a-icon type="search" class="icon"/>
                 <a-icon type="user" class="icon"/>
             </div>
+            <!--导航栏-->
             <transition
                     enter-active-class="animated fadeIn"
                     leave-active-class="animated fadeOut"
@@ -24,8 +26,10 @@
             </transition>
 
         </div>
+        <!--判断是否是手机，是手机渲染手机样式导航栏-->
+        <div class="mob_nav">
 
-
+        </div>
         <!--路由出口-->
         <router-view></router-view>
     </div>
@@ -34,23 +38,55 @@
 </template>
 <script>
     import NavBar from "@/components/NavBar";
-    import Slide from  '@/components/Slide'
+    import Slide from '@/components/Slide'
+
     export default {
         name: 'App',
         data() {
             return {
                 isShow: false,
+                isMob:false,
             }
         },
         components: {
             NavBar,
             Slide,
         },
-        methods: {
-            hander() {
-                console.log("hh")
+        mounted() {
+            //    判断是否是手机
+            //    先判断用户浏览器前缀
+
+            let flag = navigator.userAgent.match(
+                /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+            );
+            if(flag){
+                this.isMob = true;
+                this.$store.commit('SET_IS_MOBILE',true);
+                return   //走了
             }
+            //    再判断用户浏览器窗口，有的用户（比如我）在pc浏览器模拟手机浏览器
+            if(document.body.clientWidth<768){
+                //屏幕或窗口小于768px认为手机
+                 this.isMob = true;
+                 this.$store.commit('SET_IS_MOBILE',true);
+            }
+            //   当屏幕尺寸发生改变的时候，动态改变手机
+            window.onresize =  ()=> {
+                 if(this.$store.state.isMobile==false && document.body.clientWidth<768){
+                 this.isMob = true;
+                 this.$store.commit('SET_IS_MOBILE',true);
+                 console.log("屏幕尺寸被修改，样式变为手机样式");
+                }else if(this.$store.state.isMobile==true && document.body.clientWidth>=768){
+                    this.isMob = false;
+                 this.$store.commit('SET_IS_MOBILE',false);
+                 console.log("屏幕尺寸被修改，样式变为PC样式");
+                 }
+
+            }
+
+
         },
+        methods: {},
 
     }
 </script>
@@ -63,6 +99,7 @@
         width: 100%;
         z-index: 9999;
     }
+
     .logo {
         position: absolute;
         top: 0;
@@ -91,7 +128,6 @@
         z-index: 9999;
         color: #666;
     }
-
 
 
 </style>

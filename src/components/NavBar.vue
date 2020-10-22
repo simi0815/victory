@@ -98,6 +98,7 @@
                 </a-menu>
             </a-col>
             <a-col :span="6"></a-col>
+
         </a-row>
 
     </div>
@@ -130,13 +131,6 @@
         color: #666666;
         background-color: #fff;
     }
-
-    .logo {
-        width: 200px;
-        height: 40px;
-        padding-left: 20px;
-    }
-
     .navbar >>> .ant-menu-item, .navbar >>> .ant-menu-submenu-title {
         padding: 0 15px;
         cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/ayuda.cur),auto !important;
@@ -147,14 +141,6 @@
         margin-right: 0;
     }
 
-    .funcArea {
-        float: right;
-        font-size: 30px;
-    }
-
-    .funcArea .icon {
-        margin: 10px;
-    }
 
 
 </style>

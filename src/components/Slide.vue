@@ -22,8 +22,6 @@
         },
         methods: {},
         mounted() {
-            console.log("mounted");
-            console.log(window);
             window.onscroll = () => {
                 if(window.pageYOffset > this.minTop) {
                     this.isSlideShow = true;
