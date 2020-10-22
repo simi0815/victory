@@ -1,10 +1,8 @@
 <template>
-    <div class="navbar" >
+    <div class="navbar">
 
         <a-row :class="{animated:true,fadeInRight:isIn}">
-            <a-col :span="6">
-            </a-col>
-
+            <a-col :span="6"></a-col>
             <a-col :span="12">
                 <a-menu style="width: 100%;margin-top: 13px;font-size: 16px " v-model="current" mode="horizontal">
                     <a-menu-item key="index">
@@ -61,7 +59,7 @@
                         <a-icon type="appstore"/>
                         留言板
                     </a-menu-item>
-                    <a-menu-item key="friends" >
+                    <a-menu-item key="friends">
                         <a-icon type="appstore"/>
                         友人帐
                     </a-menu-item>
@@ -99,14 +97,7 @@
 
                 </a-menu>
             </a-col>
-            <a-col :span="6">
-                <div class="funcArea">
-                    <a-icon type="search" class="icon"/>
-                    <a-icon type="user" class="icon"/>
-                </div>
-            </a-col>
-
-
+            <a-col :span="6"></a-col>
         </a-row>
 
     </div>
@@ -118,12 +109,10 @@
         data() {
             return {
                 current: ['mail'],
-                isIn :false,
+                isIn: false,
             }
         },
-        methods: {
-
-        },
+        methods: {},
         mounted() {
             this.isIn = true
         }
@@ -150,6 +139,8 @@
 
     .navbar >>> .ant-menu-item, .navbar >>> .ant-menu-submenu-title {
         padding: 0 15px;
+        cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/ayuda.cur),auto !important;
+
     }
 
     .navbar >>> .ant-menu-item .anticon, .navbar >>> .ant-menu-submenu-title .anticon {
@@ -164,4 +155,6 @@
     .funcArea .icon {
         margin: 10px;
     }
+
+
 </style>
