@@ -22,7 +22,7 @@
                     enter-active-class="animated fadeIn"
                     leave-active-class="animated fadeOut"
             >
-                <NavBar v-if="isShow"></NavBar>
+                <NavBar v-if="isShow" ></NavBar>
             </transition>
 
         </div>
@@ -72,15 +72,17 @@
             }
             //   当屏幕尺寸发生改变的时候，动态改变手机
             window.onresize =  ()=> {
-                 if(this.$store.state.isMobile==false && document.body.clientWidth<768){
+                let ism = this.$store.state.isMobile;
+                 if(!ism && document.body.clientWidth<768){
                  this.isMob = true;
                  this.$store.commit('SET_IS_MOBILE',true);
                  console.log("屏幕尺寸被修改，样式变为手机样式");
-                }else if(this.$store.state.isMobile==true && document.body.clientWidth>=768){
+                }else if(ism && document.body.clientWidth>=768){
                     this.isMob = false;
                  this.$store.commit('SET_IS_MOBILE',false);
                  console.log("屏幕尺寸被修改，样式变为PC样式");
                  }
+                 this.$children.isMobile = this.$store.state.isMobile
 
             }
 
