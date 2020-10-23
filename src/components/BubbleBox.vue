@@ -62,15 +62,12 @@
 </script>
 
 <style scoped>
-    .bubbleBox {
-        margin: 0 auto;
-        width: 520px;
-        height: 90px;
+    .bubbleBox,.wrapper {
+        width: 100%;
+        height: 100%;
     }
 
     .wrapper {
-        width: 520px;
-        height: 90px;
         background-color: rgba(0, 0, 0, .5);
         position: absolute;
         border-radius: 20px;
@@ -93,7 +90,7 @@
         line-height: 45px;
         text-align: center;
         color: #f1f1f1;
-        font-size: 15px;
+
         font-weight: bolder;
     }
 
