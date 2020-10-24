@@ -17,19 +17,21 @@
                 <a-icon type="search" class="icon"/>
                 <a-icon type="user" class="icon"/>
             </div>
-            <!--导航栏-->
+            <!--PC导航栏-->
             <transition
                     enter-active-class="animated fadeIn"
                     leave-active-class="animated fadeOut"
             >
                 <NavBar v-if="isShow" ></NavBar>
+
             </transition>
 
         </div>
         <!--判断是否是手机，是手机渲染手机样式导航栏-->
-        <div class="mob_nav">
-
+        <div class="mob_nav" v-else>
+            <MobNav></MobNav>
         </div>
+
         <!--路由出口-->
         <router-view></router-view>
     </div>
@@ -38,6 +40,7 @@
 </template>
 <script>
     import NavBar from "@/components/NavBar";
+    import MobNav from '@/components/MobNav'
     import Slide from '@/components/Slide'
 
     export default {
@@ -50,6 +53,7 @@
         },
         components: {
             NavBar,
+            MobNav,
             Slide,
         },
         mounted() {

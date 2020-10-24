@@ -4,7 +4,8 @@
         <div class="wrapper">
             <div class="rectan"></div>
             <div class="massage">
-                "The shortest way to do many things is to only one thing at a time"
+
+               <p style="line-height: 60px">"知难而进，百事乃成"</p>
             </div>
             <div class="linkArea">
 
@@ -86,23 +87,24 @@
 
     .massage, .linkArea {
         width: 100%;
-        height: 45px;
-        line-height: 45px;
+        height: 50px;
         text-align: center;
         color: #f1f1f1;
-
+    font-size: 1em;
         font-weight: bolder;
     }
 
     .linkArea ul {
         margin: 0 auto;
         display: inline-block;
+        line-height: 50px;
     }
 
     .linkArea li {
         float: left;
         display: block;
         margin: 0 10px;
+        font-size: 1.5em;
     }
 
 

@@ -10,6 +10,7 @@
         name: "JumpText",
        props:['text']
     }
+
 </script>
 
 <style scoped>
