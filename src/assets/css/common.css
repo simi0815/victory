@@ -18,10 +18,24 @@ a {
 }
 *{
  cursor:url("https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/No_Disponible.cur"),auto !important;
+    user-select: none
+
 }
 /*@font-face {*/
     /*font-family:mao;*/
     /*src:url("../fonts/华文楷体.ttf");*/
+
+/*}*/
+/*pre:before{*/
+    /*display: block;*/
+    /*content: "";*/
+    /*background-color: red;*/
+    /*width: 10px;*/
+    /*height: 10px;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 3px;*/
+    /*border-radius: 50%;*/
 /*}*/
 
 

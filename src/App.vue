@@ -5,6 +5,7 @@
         <Slide></Slide>
 
 
+
         <!--设置banner点击区域，masking是导航栏面板的响应区域-->
         <!--PC端导航栏，代码太差，需要重写-->
         <div class="masking" @mouseenter="isShow=true" v-if="!isMob">
@@ -42,7 +43,6 @@
     import NavBar from "@/components/NavBar";
     import MobNav from '@/components/MobNav'
     import Slide from '@/components/Slide'
-
     export default {
         name: 'App',
         data() {
@@ -55,6 +55,7 @@
             NavBar,
             MobNav,
             Slide,
+
         },
         mounted() {
             //    判断是否是手机
