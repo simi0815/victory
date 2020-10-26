@@ -1,8 +1,8 @@
 <template>
-    <div class="content-box">
+    <div class="content-box" @click="$router.push({name:'Article',param:{id:articleInfo.id}})">
         <!--图片区域-->
         <div class="image">
-            <img src="https://2heng.xin/wp-content/uploads//2019/12/2572384-1024x640.jpg" alt="">
+            <img :src="articleInfo.imgSrc" alt="">
         </div>
         <!--内容区域-->
         <div class="content">
@@ -12,10 +12,10 @@
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-clock"></use>
                     </svg>
-                    发布于2019-12-13
+                    发布于{{articleInfo.publishTime}}
                 </div>
                 <!--标题-->
-                <div class="title"><h3>Python大神之路</h3>
+                <div class="title"><h3>{{articleInfo.title}}</h3>
                 </div>
                 <!--文章信息栏-->
                 <div class="info clearfix">
@@ -23,25 +23,24 @@
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-view"></use>
                         </svg>
-                        9427热度
+                        {{articleInfo.views}}热度
                     </div>
                     <div class="comments">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-aui-icon-comment"></use>
                         </svg>
-                        33条评论
+                        {{articleInfo.comments}}条评论
                     </div>
                     <div class="author">
                         <svg class="icon" aria-hidden="true">
                             <use xlink:href="#icon-writerin-l"></use>
                         </svg>
-                        野生技术协会
+                        {{articleInfo.author}}
                     </div>
                 </div>
                 <!--文章简略-->
-                <div class="simple-content">
-                    Python是一种跨平台的计算机程序设计语言。
-                    是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越多被用于独立的、大型项目的开发。
+                <div class="simple-content" v-text="articleInfo.content">
+
                 </div>
                 <!--省略号-->
                 <div class="omit">
@@ -59,6 +58,27 @@
 <script>
     export default {
         name: "ContentBox",
+        data(){
+            return{
+                articleInfo:{}
+            }
+        },
+        props:["id"],
+        created() {
+            //模拟从后端拿到数据
+            let res = {
+                id:1,
+                imgSrc:"https://2heng.xin/wp-content/uploads//2019/12/2572384-1024x640.jpg",
+                publishTime:"2019-12-13",
+                title:"python大神之路",
+                views:9324,
+                comments:43,
+                author:"simi",
+                content:"Python是一种跨平台的计算机程序设计语言。是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越多被用于独立的、大型项目的开发。"
+            }
+            this.articleInfo = res
+
+        }
 
     }
 </script>

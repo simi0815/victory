@@ -7,16 +7,19 @@
 
 
         <!--设置banner点击区域，masking是导航栏面板的响应区域-->
-        <!--PC端导航栏，代码太差，需要重写-->
-        <div class="masking" @mouseenter="isShow=true" v-if="!isMob">
+        <div class="masking" @mouseenter="isShow=true" v-if="currentPageNavShow&&!isMob">
             <!--logo标志-->
             <div class="logo">
                 <img src="./assets/images/banner/logo.png" alt="">
             </div>
             <!--右侧功能区-->
             <div class="funcArea">
-                <a-icon type="search" class="icon"/>
-                <a-icon type="user" class="icon"/>
+                <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-sousuo"></use>
+                </svg>
+                <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-yonghu"></use>
+                </svg>
             </div>
             <!--PC导航栏-->
             <transition
@@ -24,15 +27,17 @@
                     leave-active-class="animated fadeOut"
             >
                 <NavBar v-if="isShow" ></NavBar>
+                <!--<NewPCNav ></NewPCNav>-->
 
             </transition>
 
         </div>
         <!--判断是否是手机，是手机渲染手机样式导航栏-->
-        <div class="mob_nav" v-else>
+        <div class="mob_nav" v-if="currentPageNavShow&&isMob">
             <MobNav></MobNav>
         </div>
-
+        <!--对话框-->
+        <MessageBox></MessageBox>
         <!--路由出口-->
         <router-view></router-view>
     </div>
@@ -43,19 +48,22 @@
     import NavBar from "@/components/NavBar";
     import MobNav from '@/components/MobNav'
     import Slide from '@/components/Slide'
+    import MessageBox from '@/components/MessageBox'
+
     export default {
         name: 'App',
         data() {
             return {
-                isShow: false,
+                isShow: false,//控制导航栏显示和隐藏
                 isMob:false,
+                currentPageNavShow:true//如果路由出口不应该有导航栏就不再显示导航栏，级别比isShow高
             }
         },
         components: {
             NavBar,
             MobNav,
             Slide,
-
+            MessageBox,
         },
         mounted() {
             //    判断是否是手机
@@ -124,10 +132,12 @@
     }
 
     .funcArea {
-        float: right;
+        position: absolute;
+        top: 0;
+        right: 0;
         font-size: 30px;
         margin-top: 14px;
-        z-index: 9998;
+        z-index: 9999;
     }
 
     .funcArea .icon {

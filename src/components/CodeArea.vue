@@ -3,74 +3,90 @@
         <div class="bar">
             <div class="state"><span></span><span></span><span></span></div>
 
-            <div class="lan">javascript</div>
+            <div class="lan">{{language || "auto"}}</div>
+            <div class="copy copy-btn"  :data-clipboard-text="code">
+                <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-copy" ></use>
+                </svg>
+            </div>
         </div>
         <div class="realcode">
-             <pre style="width: 100%;overflow: scroll;font-size: 1em ;z-index: 20000">
-    <code class="line-numbers" :class="'language-'+language">import random
-    if __name__ =="__main__":    #四位数字字母验证码的生成
-    checkcode="" #保存验证码的变量
-    for i in range(4):
-        index=random.randrange(0,4)  #生成一个0~3中的数
-    if index!=i and index +1 !=i:
-        checkcode +=chr(random.randint(97,122))  # 生成a~z中的一个小写字母
-    elif index +1==i:
-        checkcode +=chr(random.randint(65,90) ) # 生成A~Z中的一个大写字母
-    else:
-        checkcode +=str(random.randint(1,9))  # 数字1-9
-    print(checkcode)
-    </code>
+             <pre style="width: 100%;overflow: scroll;font-size: 1em ;z-index: 900">
+    <code class="line-numbers" :class="'language-'+language" v-text="code" id="code"></code>
             </pre>
         </div>
     </div>
 </template>
 
 <script>
-     import Prism from 'prismjs'
+    import Prism from 'prismjs'
+    import ClipboardJS from 'clipboard'
+
     export default {
         name: "CodeArea",
-        props:["language","code"]
+        props: ["language", "code"],
+        methods:{
+            copy(){
+
+            }
+        },
+        mounted() {
+            Prism.highlightAll();
+            let cbj = new ClipboardJS('.copy-btn');
+            cbj.on("success",function (e) {
+
+            });
+            cbj.on("error",function (e) {
+
+            });
+        }
     }
 </script>
 
 <style scoped>
-.code-area,.realcode{
-    width: 100%;
-    position: relative;
-}
+    .code-area, .realcode {
+        width: 100%;
+        position: relative;
+    }
+
     .bar {
         position: absolute;
         top: 0;
-        z-index: 30000;
+        z-index: 999;
         height: 1.8em;
         width: 100%;
         /*background-color: pink;*/
     }
 
-    .state{
+    .state {
         width: 6em;
         height: 1em;
         margin: 0.4em 0;
 
     }
-    .state span{
+
+    .state span {
         width: 1em;
         height: 1em;
-        display:block;
+        display: block;
         float: left;
         border-radius: 50%;
         margin-left: 0.7em;
     }
-    .state span:first-child{
+
+    .state span:first-child {
         background-color: red;
     }
-    .state span:nth-child(2){
+
+    .state span:nth-child(2) {
         background-color: gray;
     }
-    .state span:last-child{
+
+    .state span:last-child {
         background-color: green;
     }
-    .lan{
+
+    .lan {
         height: 1em;
         width: 12em;
         position: absolute;
@@ -81,8 +97,17 @@
         text-align: center;
         color: white;
     }
-
-pre{
-    padding-top:1.8em ;
-}
+    .copy{
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 2em;
+    }
+    .copy:hover{
+        color: #fff;
+        cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/ayuda.cur), auto !important;
+    }
+    pre {
+        padding-top: 1.8em;
+    }
 </style>

@@ -12,10 +12,13 @@ ul, ol, li {
 }
 
 a {
-    color: #666;
+    color: #e67474 ;
     text-decoration: none;
     outline: 0;
 }
+img{vertical-align: middle; border:0;}
+input,textarea{outline: none;background-color: transparent;}
+textarea{resize: none;}
 *{
  cursor:url("https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/No_Disponible.cur"),auto !important;
     user-select: none
@@ -37,6 +40,7 @@ a {
     /*left: 3px;*/
     /*border-radius: 50%;*/
 /*}*/
+
 
 
 

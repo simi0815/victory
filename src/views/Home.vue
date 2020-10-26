@@ -8,18 +8,17 @@
             <!--头像-->
             <a-avatar class="avatar"
                       src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603438431016&di=e02459d1cf2512cebea1440a63899176&imgtype=0&src=http%3A%2F%2Fci.xiaohongshu.com%2Fc0c135ca-d3e1-45b1-ac53-e5c2298cc245%40r_640w_640h.jpg"/>
-
             <div class="box">
                 <BubbleBox></BubbleBox>
             </div>
-            <!--下面的大波-->
+
             <!--箭头-->
             <div class="slide-row">
                 <svg class="icon" aria-hidden="true" style="font-size: 30px !important;">
                     <use xlink:href="#icon-icon-arrow-bottom2"></use>
                 </svg>
             </div>
-
+            <!--下面的大波-->
             <div class="wave-shadow"></div>
             <div class="wave"></div>
         </div>
@@ -30,10 +29,10 @@
             <DividerLine title="Discovery"></DividerLine>
             <ContentBox></ContentBox>
             <DividerLine title="Discovery"></DividerLine>
-            <ContentBox ></ContentBox>
-            <ContentBox ></ContentBox>
-            <ContentBox ></ContentBox>
-            <ContentBox ></ContentBox>
+            <ContentBox></ContentBox>
+            <ContentBox></ContentBox>
+            <ContentBox></ContentBox>
+            <ContentBox></ContentBox>
 
         </div>
     </div>
@@ -43,7 +42,7 @@
 <script>
     // @ is an alias to /src
     import JumpText from '../components/JumpText'
-    import BubbleBox from '../components/BubbleBox'
+    import BubbleBox from '../components/Home/BubbleBox'
     import ContentBox from '../components/ContentBox'
     import DividerLine from '../components/DividerLine'
 
@@ -63,10 +62,10 @@
                 this.$parent.isShow = false
             }
         },
-        computed:{
-          isM(){
-              return this.$store.state.isMobile;
-          }
+        computed: {
+            isM() {
+                return this.$store.state.isMobile;
+            }
         },
 
         created() {
@@ -118,8 +117,11 @@
             margin-left: -60px;
             margin-top: 200px;
             border: 5px rgba(0, 0, 0, .3) solid;
+            transition: all 2s ease;
         }
-
+        .avatar:hover{
+            transform: rotateZ(360deg);
+        }
         .box {
             position: absolute;
             margin-top: 10px;

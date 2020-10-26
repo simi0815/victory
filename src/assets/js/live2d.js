@@ -17,9 +17,7 @@ const s = document.createElement('script');
   window.onload = function () {
       L2Dwidget.init({
         "model": {
-            // jsonPath: "https://unpkg.com/live2d-widget-model-chitose@1.0.5/assets/chitose.model.json",
             jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",
-
             "scale": 1
         },
         "display": {
@@ -30,8 +28,8 @@ const s = document.createElement('script');
             "vOffset": 0
         },
         "mobile": {
-            "show": false,
-            "scale": 0.5
+            "show": true,
+            "scale": 0.1,
         },
         "react": {
             "opacityDefault": 0.9,

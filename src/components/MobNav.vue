@@ -52,61 +52,109 @@
                     </div>
                     <!--搜索区域-->
                     <div class="search">
-                        <a-input-search placeholder="Python" size="large" @search="onSearch">
+                        <a-input-search placeholder="Python" size="default" @search="onSearch">
                             <a-button slot="enterButton">
-                                搜索
+                                <svg class="icon" aria-hidden="true">
+                                    <use xlink:href="#icon-sousuo"></use>
+                                </svg>
                             </a-button>
                         </a-input-search>
                     </div>
 
                     <a-menu mode="inline" :open-keys="openKeys" style="width: 100%" @openChange="onOpenChange">
-                        <a-sub-menu key="sub1">
-                            <span slot="title"><a-icon type="mail"/><span>首页</span></span>
-                            <a-menu-item key="1">
-                                Option 1
-                            </a-menu-item>
-                            <a-menu-item key="2">
-                                Option 2
-                            </a-menu-item>
-                            <a-menu-item key="3">
-                                Option 3
-                            </a-menu-item>
-                            <a-menu-item key="4">
-                                Option 4
-                            </a-menu-item>
-                        </a-sub-menu>
-                        <a-sub-menu key="sub2">
-                            <span slot="title"><a-icon type="appstore"/><span>归档</span></span>
-                            <a-menu-item key="5">
-                                Option 5
-                            </a-menu-item>
-                            <a-menu-item key="6">
-                                Option 6
-                            </a-menu-item>
-                            <a-sub-menu key="sub3" title="Submenu">
-                                <a-menu-item key="7">
-                                    Option 7
-                                </a-menu-item>
-                                <a-menu-item key="8">
-                                    Option 8
-                                </a-menu-item>
-                            </a-sub-menu>
-                        </a-sub-menu>
-                        <a-sub-menu key="sub4">
-                            <span slot="title"><a-icon type="setting"/><span>清单</span></span>
-                            <a-menu-item key="9">
-                                Option 9
-                            </a-menu-item>
-                            <a-menu-item key="10">
-                                Option 10
-                            </a-menu-item>
-                            <a-menu-item key="11">
-                                Option 11
-                            </a-menu-item>
-                            <a-menu-item key="12">
-                                Option 12
-                            </a-menu-item>
-                        </a-sub-menu>
+                        <a-menu-item key="index">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-iconindexsel1"></use>
+                        </svg>
+                        首页
+                    </a-menu-item>
+                    <a-sub-menu>
+                        <span slot="title" class="submenu-title-wrapper">
+                                    <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-dangan"></use>
+                                     </svg>
+                                    归档
+                                </span>
+                        <a-menu-item key="setting:1" class="subitem">
+                                    <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-anonymity-101"></use>
+                                     </svg>
+                            极客
+                        </a-menu-item>
+                        <a-menu-item key="setting:2" class="subitem">
+                                    <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-wenzhang"></use>
+                                     </svg>
+                            文章
+                        </a-menu-item>
+                        <a-menu-item key="setting:3" class="subitem">
+                                    <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-dianying"></use>
+                                     </svg>
+                            影评
+                        </a-menu-item>
+                        <a-menu-item key="setting:4" class="subitem">
+                                    <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-sikao"></use>
+                                     </svg>
+                            随想
+                        </a-menu-item>
+
+
+                    </a-sub-menu>
+                    <a-menu-item key="all">
+                        <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-quanliqingdan"></use>
+                                     </svg>
+                        清单
+                    </a-menu-item>
+                    <a-menu-item key="message">
+                        <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-liuyan"></use>
+                                     </svg>
+                        留言板
+                    </a-menu-item>
+                    <a-menu-item key="friends">
+                        <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-pengyou"></use>
+                                     </svg>
+                        友人帐
+                    </a-menu-item>
+                    <a-sub-menu>
+                                <span slot="title" class="submenu-title-wrapper">
+                                    <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-guanyu"></use>
+                                     </svg>
+                                    关于
+                                </span>
+
+                        <a-menu-item key="setting:9" class="subitem">
+                                    <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-zhuti"></use>
+                                     </svg>
+                            主题
+                        </a-menu-item>
+                        <a-menu-item key="setting:10" class="subitem">
+                                    <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-zuozhe"></use>
+                                     </svg>
+                            作者
+                        </a-menu-item>
+
+
+                    </a-sub-menu>
+                    <a-menu-item key="app">
+                        <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-app"></use>
+                                     </svg>
+                        APP
+                    </a-menu-item>
+                    <a-menu-item key="bush">
+                        <svg class="icon" aria-hidden="true">
+                                         <use xlink:href="#icon-tree"></use>
+                                     </svg>
+                        小树林
+                    </a-menu-item>
                     </a-menu>
 
                     <div class="close" @click="isShow=false">
@@ -155,7 +203,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: 19999;
+        z-index: 1999999;
         overflow: scroll;
     }
 
@@ -171,6 +219,7 @@
         width: 100%;
         height: 100%;
     }
+
     .navArea .left {
         width: 60%;
         height: 100%;
@@ -185,7 +234,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        background-color: rgba(0,0,0,.5);
+        background-color: rgba(0, 0, 0, .5);
     }
 
     .avatar {
@@ -203,8 +252,11 @@
     }
 
     .logo {
-        margin: auto;
+        margin: 0 auto;
         position: relative;
+        width: 50%;
+        left: -3%;
+        height: 20px;
     }
 
     .linker {
@@ -220,7 +272,10 @@
         justify-content: space-around;
 
     }
-
+    .search{
+        width: 80%;
+        margin: 0 auto;
+    }
 
     .left .close {
         margin: 10px;
