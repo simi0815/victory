@@ -7,7 +7,7 @@
             <img src="../assets/images/index/cover4.webp" alt="" class="bg">
             <!--头像-->
             <a-avatar class="avatar"
-                      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603438431016&di=e02459d1cf2512cebea1440a63899176&imgtype=0&src=http%3A%2F%2Fci.xiaohongshu.com%2Fc0c135ca-d3e1-45b1-ac53-e5c2298cc245%40r_640w_640h.jpg"/>
+                      src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603743656018&di=34215fa351d2e430a3bdc85962084282&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202009%2F24%2F20200924201441_xdhsp.thumb.400_0.jpeg"/>
             <div class="box">
                 <BubbleBox></BubbleBox>
             </div>
@@ -27,13 +27,9 @@
         <!--主页下方内容区域-->
         <div class="panel-content">
             <DividerLine title="Discovery"></DividerLine>
-            <ContentBox></ContentBox>
+            <ContentBox :articleInfo="propagationInfo"></ContentBox>
             <DividerLine title="Discovery"></DividerLine>
-            <ContentBox></ContentBox>
-            <ContentBox></ContentBox>
-            <ContentBox></ContentBox>
-            <ContentBox></ContentBox>
-
+            <ContentBox :articleInfo="articleInfo" v-for="ele in 5" :key="ele" :reverse="Boolean(ele%2)"></ContentBox>
         </div>
     </div>
 
@@ -49,7 +45,29 @@
     export default {
         name: 'Home',
         data() {
-            return {}
+            return {
+                articleInfo: {
+                    id: 1,
+                    imgSrc: "https://2heng.xin/wp-content/uploads//2019/12/2572384-1024x640.jpg",
+                    publishTime: "2019-12-13",
+                    title: "python大神之路",
+                    views: 9324,
+                    comments: 43,
+                    author: "simi",
+                    content: "Python是一种跨平台的计算机程序设计语言。是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越多被用于独立的、大型项目的开发。"
+                },
+                propagationInfo: {
+                    id: 2,
+                    imgSrc: "https://pic.qqtn.com/up/2016-7/2016070518082798993.jpg",
+                    publishTime: "2020-10-27",
+                    title: "关于vue前端模板VICTORY",
+                    authorAvatar: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603743656018&di=34215fa351d2e430a3bdc85962084282&imgtype=0&src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202009%2F24%2F20200924201441_xdhsp.thumb.400_0.jpeg",
+                    views: 10000,
+                    comments: 0,
+                    author: "simi",
+                    content:"本人（simi）即将告别学生党，原本是一名苦逼 pythoner 。大概一年前接触前端，打算拓展专业知识，中间放弃了几次，虚度了很多光阴，还是坚持了下来"
+                }
+            }
         },
         components: {
             JumpText,
@@ -97,6 +115,7 @@
     .panel-content {
         width: 100%;
         background-color: #fff;
+        padding-bottom: 40px;
     }
 
     /*设置面板样式*/
@@ -119,9 +138,11 @@
             border: 5px rgba(0, 0, 0, .3) solid;
             transition: all 2s ease;
         }
-        .avatar:hover{
+
+        .avatar:hover {
             transform: rotateZ(360deg);
         }
+
         .box {
             position: absolute;
             margin-top: 10px;

@@ -12,7 +12,7 @@
         </div>
         <div class="realcode">
              <pre style="width: 100%;overflow: scroll;font-size: 1em ;z-index: 900">
-    <code class="line-numbers" :class="'language-'+language" v-text="code" id="code"></code>
+    <code class="line-numbers" :class="'language-'+language" >{{code}}</code>
             </pre>
         </div>
     </div>
@@ -24,20 +24,17 @@
 
     export default {
         name: "CodeArea",
-        props: ["language", "code"],
+        props: ["language","code"],
         methods:{
-            copy(){
-
-            }
         },
         mounted() {
             Prism.highlightAll();
             let cbj = new ClipboardJS('.copy-btn');
-            cbj.on("success",function (e) {
-
+            cbj.on("success", (e)=> {
+                this.$store.commit("setLiveWord","已经复制到剪切板了...")
             });
-            cbj.on("error",function (e) {
-
+            cbj.on("error", (e)=> {
+                  this.$store.commit("setLiveWord","出错了，剪切板没有找到内容...")
             });
         }
     }

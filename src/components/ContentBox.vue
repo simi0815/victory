@@ -1,18 +1,18 @@
 <template>
-    <div class="content-box" @click="$router.push({name:'Article',param:{id:articleInfo.id}})">
+    <div class="content-box"  @click="$router.push({name:'Article',params:{id:articleInfo.id}})">
         <!--图片区域-->
-        <div class="image">
+        <div class="image" :class="{left:!reverse,right:reverse}">
             <img :src="articleInfo.imgSrc" alt="">
         </div>
         <!--内容区域-->
-        <div class="content">
+        <div class="content" :class="{left:reverse,right: !reverse}">
             <div class="wrapper">
                 <!--发布时间-->
                 <div class="publishTime">
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-clock"></use>
                     </svg>
-                    发布于{{articleInfo.publishTime}}
+                    发布于{{articleInfo.publishTime}}{{reverse}}{{typeof reverse}}
                 </div>
                 <!--标题-->
                 <div class="title"><h3>{{articleInfo.title}}</h3>
@@ -52,6 +52,7 @@
 
 
         </div>
+
     </div>
 </template>
 
@@ -60,30 +61,16 @@
         name: "ContentBox",
         data(){
             return{
-                articleInfo:{}
+
             }
         },
-        props:["id"],
-        created() {
-            //模拟从后端拿到数据
-            let res = {
-                id:1,
-                imgSrc:"https://2heng.xin/wp-content/uploads//2019/12/2572384-1024x640.jpg",
-                publishTime:"2019-12-13",
-                title:"python大神之路",
-                views:9324,
-                comments:43,
-                author:"simi",
-                content:"Python是一种跨平台的计算机程序设计语言。是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越多被用于独立的、大型项目的开发。"
-            }
-            this.articleInfo = res
-
-        }
-
+        props:["articleInfo","reverse"],
     }
 </script>
 
 <style scoped>
+
+
      .wrapper {
             width: 86%;
             height: 86%;
@@ -122,7 +109,7 @@
             width: 56%;
             min-width: 768px;
             height: 300px;
-            margin: 30px auto;
+            margin: 50px auto;
             box-shadow: 0 1px 20px -6px rgba(0, 0, 0, .5);
             border-radius: 20px;
             overflow: hidden;
@@ -135,7 +122,7 @@
         .image {
             width: 60%;
             height: 100%;
-            float: left;
+
             overflow: hidden;
         }
 
@@ -154,7 +141,6 @@
         .content {
             width: 40%;
             height: 100%;
-            float: right;
         }
         .title {
             margin: 18px 0;
@@ -167,7 +153,8 @@
         .content-box{
             width: 90%;
             height: 480px;
-            margin: 30px auto;
+            margin: 10px auto;
+            border: 1px solid rgba(0,0,0,.6);
         }
         .image,.image img{
             width: 100%;
@@ -180,6 +167,13 @@
         .title {
             margin: 10px 0;
         }
+        .simple-content{
+
+            height: 67.5px;
+            margin: 5px 0 10px 0;
+
+        }
+
     }
 
 

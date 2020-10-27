@@ -12,17 +12,39 @@ ul, ol, li {
 }
 
 a {
-    color: #e67474 ;
+
     text-decoration: none;
     outline: 0;
 }
-img{vertical-align: middle; border:0;}
+a{
+    color: #e67474 !important;
+}
+img{vertical-align: middle; border:0;display: block}
 input,textarea{outline: none;background-color: transparent;}
 textarea{resize: none;}
 *{
  cursor:url("https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/No_Disponible.cur"),auto !important;
     user-select: none
 
+}
+
+.select-free,.select-free *{
+    user-select: text !important;
+}
+
+.select-free::selection,.select-free *::selection{
+    background-color: rgba(246,116,116,.3);
+    color: #e67474;
+}
+strong{
+    background-color: rgba(254,250,199,1);
+    color: #ff3f1a;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
 }
 /*@font-face {*/
     /*font-family:mao;*/

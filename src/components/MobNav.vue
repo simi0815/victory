@@ -1,6 +1,6 @@
 <!--vue-ant样式太难看，打算手写-->
 <template>
-    <div class="mob-nav">
+    <div class="mob-nav clearfix">
         <!--开关按钮，控制nav隐藏和显示-->
         <div class="btn" @click="isShow=true">
             <svg class="icon" aria-hidden="true">
@@ -198,26 +198,25 @@
 </script>
 <style scoped>
     .mob-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
         z-index: 1999999;
-        overflow: scroll;
     }
 
     .btn {
         color: gray;
+        position: fixed;
         font-size: 30px;
-        position: absolute;
         left: 0;
         top: 0;
+        z-index: 1999999;
     }
 
     .navArea {
+        position: fixed;
         width: 100%;
         height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2000000;
     }
 
     .navArea .left {

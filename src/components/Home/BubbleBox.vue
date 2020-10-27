@@ -5,7 +5,7 @@
             <div class="rectan"></div>
             <div class="massage">
 
-               <p style="line-height: 60px">"知难而进，百事乃成"</p>
+               <p style="line-height: 60px">"闭上眼睛，美好下一刻发生..."</p>
             </div>
             <div class="linkArea">
 

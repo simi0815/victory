@@ -37,7 +37,7 @@
             <MobNav></MobNav>
         </div>
         <!--对话框-->
-        <MessageBox></MessageBox>
+        <Live2D ref="liveTd"></Live2D>
         <!--路由出口-->
         <router-view></router-view>
     </div>
@@ -48,6 +48,7 @@
     import NavBar from "@/components/NavBar";
     import MobNav from '@/components/MobNav'
     import Slide from '@/components/Slide'
+    import Live2D from '@/components/Live2D'
     import MessageBox from '@/components/MessageBox'
 
     export default {
@@ -63,6 +64,7 @@
             NavBar,
             MobNav,
             Slide,
+            Live2D,
             MessageBox,
         },
         mounted() {
@@ -74,6 +76,7 @@
             );
             if(flag){
                 this.isMob = true;
+                console.log("这个前缀是手机");
                 this.$store.commit('SET_IS_MOBILE',true);
                 return   //走了
             }
@@ -86,6 +89,7 @@
             //   当屏幕尺寸发生改变的时候，动态改变手机
             window.onresize =  ()=> {
                 let ism = this.$store.state.isMobile;
+                console.log(document.body.clientWidth);
                  if(!ism && document.body.clientWidth<768){
                  this.isMob = true;
                  this.$store.commit('SET_IS_MOBILE',true);
