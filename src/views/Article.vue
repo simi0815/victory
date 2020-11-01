@@ -85,7 +85,7 @@
                         },
                         {
                             type: 1,
-                            data:"<h3>2.LIVE-2D看板娘</h3>已将代码封装到 <strong>Live2D</strong> 组件，你可以修改对话，其他组件内想修改当前对话的话，只需要修改 <strong>vuex</strong> 中的 <strong>currentWord</strong> 就可以了 <img src='http://chuantu.xyz/t6/741/1603796174x2073446526.png' alt='' style='width: 200px;height: 400px;margin: 0 auto'>"
+                            data:"<h3>2.LIVE-2D看板娘</h3>已将代码封装到 <strong>Live2D</strong> 组件，你可以修改对话，其他组件内想修改当前对话的话，只需要修改 <strong>vuex</strong> 中的 <strong>currentWord</strong> 就可以了 <img src='http://www.smilenow.top/static/ex.png' alt='' style='width: 200px;height: 400px;margin: 0 auto'>"
                         },
                         {
                             type:1,
@@ -194,7 +194,7 @@
 
         .content p {
 
-            line-height: 30px;
+            line-height: 40px;
         }
 
     }

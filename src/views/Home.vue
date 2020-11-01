@@ -14,9 +14,11 @@
 
             <!--箭头-->
             <div class="slide-row">
-                <svg class="icon" aria-hidden="true" style="font-size: 30px !important;">
-                    <use xlink:href="#icon-icon-arrow-bottom2"></use>
-                </svg>
+                <a href="#content">
+                    <svg class="icon" aria-hidden="true" style="font-size: 30px !important;">
+                        <use xlink:href="#icon-icon-arrow-bottom2"></use>
+                    </svg>
+                </a>
             </div>
             <!--下面的大波-->
             <div class="wave-shadow"></div>
@@ -25,8 +27,8 @@
 
 
         <!--主页下方内容区域-->
-        <div class="panel-content">
-            <DividerLine title="Discovery"></DividerLine>
+        <div class="panel-content" id="content">
+            <DividerLine title="FollowMe"></DividerLine>
             <ContentBox :articleInfo="propagationInfo"></ContentBox>
             <DividerLine title="Discovery"></DividerLine>
             <ContentBox :articleInfo="articleInfo" v-for="ele in 5" :key="ele" :reverse="Boolean(ele%2)"></ContentBox>
@@ -65,7 +67,7 @@
                     views: 10000,
                     comments: 0,
                     author: "simi",
-                    content:"本人（simi）即将告别学生党，原本是一名苦逼 pythoner 。大概一年前接触前端，打算拓展专业知识，中间放弃了几次，虚度了很多光阴，还是坚持了下来"
+                    content: "本人（simi）即将告别学生党，原本是一名苦逼 pythoner 。大概一年前接触前端，打算拓展专业知识，中间放弃了几次，虚度了很多光阴，还是坚持了下来"
                 }
             }
         },

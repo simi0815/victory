@@ -2,7 +2,9 @@
     <div id="app">
 
         <!--slide组件,那个吊着的猫-->
-        <Slide></Slide>
+        <Slide>
+            
+        </Slide>
 
 
 

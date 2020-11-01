@@ -12,7 +12,7 @@
                     <svg class="icon" aria-hidden="true">
                         <use xlink:href="#icon-clock"></use>
                     </svg>
-                    发布于{{articleInfo.publishTime}}{{reverse}}{{typeof reverse}}
+                    发布于{{articleInfo.publishTime}}
                 </div>
                 <!--标题-->
                 <div class="title"><h3>{{articleInfo.title}}</h3>

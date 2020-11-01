@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Article from "../views/Article";
-import NotFound from '../views/404NotFound'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -13,17 +11,17 @@ const routes = [
     {
         path: '/index',
         name: 'Home',
-        component: Home
+        component: resolve => require(['@/views/Home.vue'],resolve)
     },
     {
         path:'/article/:id',
         name:'Article',
-        component:Article
+        component:resolve => require(['@/views/Article.vue'],resolve)
     },
     {
         path:'*',
         name:'NotFound',
-        component:NotFound,
+        component:resolve => require(['@/views/404NotFound.vue'],resolve),
     }
 
 
